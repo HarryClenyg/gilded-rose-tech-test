@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -16,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/HarryClenyg/gilded-rose-tech-test/issues"
   },
-  "homepage": "https://github.com/HarryClenyg/gilded-rose-tech-test#readme"
+  "homepage": "https://github.com/HarryClenyg/gilded-rose-tech-test#readme",
+  "devDependencies": {
+    "jest": "^27.5.1",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^26.1.5",
+    "prettier": "^2.6.2"
+  }
 }
