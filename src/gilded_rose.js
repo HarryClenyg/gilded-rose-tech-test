@@ -1,5 +1,3 @@
-const Item = require("../src/item");
-
 class Shop {
   constructor(items=[]){
     this.items = items;
