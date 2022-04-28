@@ -1,13 +1,14 @@
 const Shop = require("../src/gilded_rose");
 const Item = require("../src/item");
+const AgedBrie = require("../src/agedBrie");
 
 describe("Gilded Rose", () => {
   const gildedRose = new Shop();
   const items = gildedRose.items;
   items.push(
     new Item("+5 Dexterity Vest", 10, 20),
-    new Item("Aged Brie", 2, 0),
-    new Item("Aged Brie", 2, 50),
+    new AgedBrie("Aged Brie", 2, 0),
+    new AgedBrie("Aged Brie", 2, 50),
     new Item("Elixir of the Mongoose", -1, 7),
     new Item("Sulfuras, Hand of Ragnaros", 0, 80),
     new Item("Sulfuras, Hand of Ragnaros", -1, 80),
@@ -33,13 +34,13 @@ describe("Gilded Rose", () => {
     expect(updateItems[0].sellIn).toBe(9);
   });
 
-  // it("should increase quality of aged brie each day", () => {
-  //   expect(updateItems[1].quality).toBe(1);
-  // });
+  it("should increase quality of aged brie each day", () => {
+    expect(updateItems[1].quality).toBe(1);
+  });
 
-  // it("should cap the quality of an item at 50", () => {
-  //   expect(updateItems[2].quality).toBe(50);
-  // });
+  it("should cap the quality of an item at 50", () => {
+    expect(updateItems[2].quality).toBe(50);
+  });
 
   // it("should decrease quality by 2 for items past their sellIn date", () => {
   //   expect(updateItems[3].quality).toBe(5);
