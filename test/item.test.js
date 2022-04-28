@@ -7,7 +7,7 @@ describe("Normal Items", () => {
   items.push(
     new Item("+5 Dexterity Vest", 10, 20),
     new Item("+5 Dexterity Vest", 10, 0),
-    new Item("Elixir of the Mongoose", -1, 7),
+    new Item("Elixir of the Mongoose", -1, 7)
   );
   
   const updateItems = gildedRose.updateQualityAll();

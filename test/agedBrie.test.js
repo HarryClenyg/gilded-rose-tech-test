@@ -6,7 +6,7 @@ describe("Aged Brie", () => {
   const items = gildedRose.items;
   items.push(
     new AgedBrie("Aged Brie", 2, 0),
-    new AgedBrie("Aged Brie", 2, 50),
+    new AgedBrie("Aged Brie", 2, 50)
   );
   
   const updateItems = gildedRose.updateQualityAll();
