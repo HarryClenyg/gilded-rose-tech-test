@@ -3,6 +3,7 @@ const Item = require("../src/item");
 const AgedBrie = require("../src/agedBrie");
 const Sulfuras = require("../src/sulfuras");
 const BackstagePass = require("../src/backstagePass");
+const Conjured = require("../src/Conjured");
 
 describe("Gilded Rose", () => {
   const gildedRose = new Shop();
@@ -18,9 +19,8 @@ describe("Gilded Rose", () => {
     new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 10, 20),
     new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 5, 20),
     new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 0, 20),
-  
-    // This Conjured item does not work properly yet
-    new Item("Conjured Mana Cake", 3, 6),
+    new Conjured("Conjured Mana Cake", 3, 6),
+    new Conjured("Conjured Mana Cake", -1, 6)
   );
   
   const updateItems = gildedRose.updateQualityAll();
@@ -70,5 +70,13 @@ describe("Gilded Rose", () => {
 
   it("should set quality of Backstage Passes to 0 once event has passed", () => {
     expect(updateItems[9].quality).toBe(0);
+  });
+  
+  it("should reduce quality of Conjured items by 2 each time updateQualityAll is called", () => {
+    expect(updateItems[10].quality).toBe(4);
+  });
+
+  it("should decrease quality by 4 for Conjured items past their sellIn date", () => {
+    expect(updateItems[11].quality).toBe(2);
   });
 });
