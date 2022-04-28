@@ -1,29 +1,21 @@
 const Shop = require("../src/gilded_rose");
-const Item = require("../src/item");
-const AgedBrie = require("../src/agedBrie");
-const Sulfuras = require("../src/sulfuras");
-const BackstagePass = require("../src/backstagePass");
-const Conjured = require("../src/Conjured");
 
 describe("Gilded Rose", () => {
   const gildedRose = new Shop();
-  const items = gildedRose.items;
-  items.push(
-    new Item("+5 Dexterity Vest", 10, 20),
-    new AgedBrie("Aged Brie", 2, 0),
-    new AgedBrie("Aged Brie", 2, 50),
-    new Item("Elixir of the Mongoose", -1, 7),
-    new Sulfuras("Sulfuras, Hand of Ragnaros", 0, 80),
-    new Sulfuras("Sulfuras, Hand of Ragnaros", -1, 80),
-    new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-    new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 10, 20),
-    new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 5, 20),
-    new BackstagePass("Backstage passes to a TAFKAL80ETC concert", 0, 20),
-    new Conjured("Conjured Mana Cake", 3, 6),
-    new Conjured("Conjured Mana Cake", -1, 6)
-  );
-  
-  const updateItems = gildedRose.updateQualityAll();
+  gildedRose.addItem("item", "+5 Dexterity Vest", 10, 20)
+  gildedRose.addItem("aged brie", "Aged Brie", 2, 0)
+  gildedRose.addItem("aged brie", "Aged Brie", 2, 50)
+  gildedRose.addItem("item", "Elixir of the Mongoose", -1, 7)
+  gildedRose.addItem("sulfuras", "Sulfuras, Hand of Ragnaros", 0, 80)
+  gildedRose.addItem("sulfuras", "Sulfuras, Hand of Ragnaros", -1, 80)
+  gildedRose.addItem("backstage pass", "Backstage passes to a TAFKAL80ETC concert", 15, 20)
+  gildedRose.addItem("backstage pass", "Backstage passes to a TAFKAL80ETC concert", 10, 20)
+  gildedRose.addItem("backstage pass", "Backstage passes to a TAFKAL80ETC concert", 5, 20)
+  gildedRose.addItem("backstage pass", "Backstage passes to a TAFKAL80ETC concert", 0, 20)
+  gildedRose.addItem("conjured", "Conjured Mana Cake", 3, 6)
+  gildedRose.addItem("conjured", "Conjured Mana Cake", -1, 6)
+
+  const updateItems = gildedRose.updateQualityAll()
 
   it("should add new item to shop's item list", () => {
     expect(updateItems[0].name).toBe("+5 Dexterity Vest");
