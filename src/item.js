@@ -6,15 +6,15 @@ class Item {
   }
 
   updateQuality() {
-  if(0 < this.quality){  
-    if(this.sellIn >= 0){
-      this.quality -= 1
-    } else {
-      this.quality -= 2
+    if(0 < this.quality){  
+      if(this.sellIn >= 0){
+        this.quality -= 1
+      } else {
+        this.quality -= 2
+      }
     }
-  }
-  this.sellIn -= 1;
-  return this;
+    this.sellIn -= 1;
+    return this;
   }
 }
 
