@@ -6,6 +6,7 @@ describe("Gilded Rose", () => {
   items.push(
     new Item("+5 Dexterity Vest", 10, 20),
     new Item("Aged Brie", 2, 0),
+    new Item("Aged Brie", 2, 50),
     new Item("Elixir of the Mongoose", -1, 7),
     new Item("Sulfuras, Hand of Ragnaros", 0, 80),
     new Item("Sulfuras, Hand of Ragnaros", -1, 80),
@@ -35,26 +36,30 @@ describe("Gilded Rose", () => {
     expect(updateItems[1].quality).toBe(1);
   });
 
+  it("should cap the quality of an item at 50", () => {
+    expect(updateItems[2].quality).toBe(50);
+  });
+
   it("should decrease quality by 2 for items past their sellIn date", () => {
-    expect(updateItems[2].quality).toBe(5);
+    expect(updateItems[3].quality).toBe(5);
   });
 
   it("should never change the quality and sellIn of Sulfuras", () => {
-    expect(updateItems[3].quality).toBe(80);
-    expect(updateItems[3].sellIn).toBe(0);
     expect(updateItems[4].quality).toBe(80);
-    expect(updateItems[4].sellIn).toBe(-1);
+    expect(updateItems[4].sellIn).toBe(0);
+    expect(updateItems[5].quality).toBe(80);
+    expect(updateItems[5].sellIn).toBe(-1);
   });
 
   it("should increase quality of Backstage Passes by 1 each day when more than 10 days to event", () => {
-    expect(updateItems[5].quality).toBe(21);
+    expect(updateItems[6].quality).toBe(21);
   });
 
   it("should increase quality of Backstage Passes by 2 each day when there are between 6 and 10 days (inclusive) to event", () => {
-    expect(updateItems[6].quality).toBe(22);
+    expect(updateItems[7].quality).toBe(22);
   });
 
   it("should increase quality of Backstage Passes by 3 each day when there are between 0 and 5 days (inclusive) to event", () => {
-    expect(updateItems[7].quality).toBe(23);
+    expect(updateItems[8].quality).toBe(23);
   });
 });
